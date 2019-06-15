@@ -1,3 +1,13 @@
+# Personal site
+http://0.0.0.0:9080 {
+  gzip
+  root /home/torch2424/personal-site-amp/public
+
+  header /assets {
+    Cache-Control "public, max-age=31536000"
+  }
+}
+
 # Vaporboy
 http://0.0.0.0:9080 {
 	gzip
