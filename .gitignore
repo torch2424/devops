@@ -1,0 +1,11 @@
+# Ignore passwords
+**/.htpasswd
+**/.htaccess
+**/.htpassword
+
+# Ignore env
+**/*.env
+
+# Ignore logs
+**/*.log
+
