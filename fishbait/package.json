@@ -1,0 +1,35 @@
+{
+  "name": "fishbait",
+  "version": "0.0.1",
+  "description": "A tool for running commands in response to (github) webhook calls",
+  "main": "index.js",
+  "scripts": {
+    "start": "npm run dev",
+    "dev": "node bin/fishbait fishbait.example.json",
+    "test": "npx mocha test/test.js"
+  },
+  "keywords": [
+    "github",
+    "webhook",
+    "fish",
+    "bait",
+    "web",
+    "hook",
+    "gitlab",
+    "bash",
+    "script",
+    "self",
+    "hosted"
+  ],
+  "author": "Aaron Turner",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "githubhook": "^1.9.3",
+    "minimist": "^1.2.0"
+  },
+  "devDependencies": {
+    "mocha": "^6.1.4",
+    "node-fetch": "^2.6.0",
+    "sinon": "^7.3.2"
+  }
+}

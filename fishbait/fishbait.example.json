@@ -1,0 +1,14 @@
+{
+  "host": "0.0.0.0",
+  "port": "3420",
+  "secret": "",
+  "path": "/fishbait",
+  "hooks": [
+    {
+      "event": "push",
+      "reponame": "example", 
+      "ref": "master",
+      "command": "echo 'Hello World'"
+    }
+  ]
+}
