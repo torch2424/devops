@@ -9,3 +9,7 @@
 # Ignore logs
 **/*.log
 
+# Ignore goaccess
+**/goaccess/*.html
+**/goaccess/*.json
+
