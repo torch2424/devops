@@ -13,7 +13,7 @@ do
   echo " "
   echo "Cat all logs into file..."
   echo " "
-  cat /home/torch2424/.files_caddy/aaronTheDev-proxy/logs/access* > /tmp/generateGoaccess.txt
+  cat /home/torch2424/devops/caddy/aaronTheDev-proxy/logs/access* > /tmp/generateGoaccess.txt
 
   # Standard ouput
   echo " "
