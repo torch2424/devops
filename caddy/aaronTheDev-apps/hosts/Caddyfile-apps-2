@@ -1,5 +1,5 @@
 # Personal site
-http://0.0.0.0:9080 {
+http://0.0.0.0:8000 {
   gzip
   root /home/torch2424/personal-site-amp/public
 
