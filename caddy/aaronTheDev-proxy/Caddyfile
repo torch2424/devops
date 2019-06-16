@@ -24,13 +24,6 @@ http://0.0.0.0:5000 {
   }
 }
 
-# goaccess for analyzing (local) web logs
-logs.aaronthedev.com, http://0.0.0.0:7891 {
-  basicauth / torch2424 htpasswd=../.htpasswd 
-  gzip
-  root ./goaccess
-}
-
 # Home Page / Portfolio site
 aaronthedev.com, http://0.0.0.0:8000 {
     import logsnippet
@@ -88,11 +81,28 @@ getdismoney.com, http://0.0.0.0:3030 {
 # VaporBoy
 vaporboy.net, http://0.0.0.0:9080 {
   import logsnippet
-  proxy / {$APP_IP}:9080 {$APP_2_IP}:8000 0.0.0.0:5000 {
+  proxy / {$APP_IP}:9080 {$APP_2_IP}:9080 0.0.0.0:5000 {
 		policy first
 		transparent
 		health_check /
 	}
+}
+
+# Wasm By Example
+wasmbyexample.dev, http://0.0.0.0:6080 {
+  import logsnippet
+  proxy / {$APP_IP}:6080 {$APP_2_IP}:6080 0.0.0.0:5000 {
+    policy first
+    transparent
+    health_check /
+  }
+}
+
+# goaccess for analyzing (local) web logs
+logs.aaronthedev.com, http://0.0.0.0:7891 {
+  basicauth / torch2424 htpasswd=../.htpasswd 
+  gzip
+  root ./goaccess
 }
 
 # Droppy File Server

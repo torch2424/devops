@@ -35,3 +35,14 @@ http://0.0.0.0:9080 {
 	}
 }
 
+# Wasm By Example
+http://0.0.0.0:6080 {
+  gzip
+  root /home/torch2424/wasm-by-example/public
+
+  header /assets {
+    Cache-Control "public, max-age=31536000"
+  }
+}
+
+
