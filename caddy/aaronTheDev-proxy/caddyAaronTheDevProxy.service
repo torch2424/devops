@@ -1,5 +1,6 @@
 # How to create systemd services: http://neilwebber.com/notes/2016/02/10/making-a-simple-systemd-file-for-raspberry-pi-jessie/
 # Original Template: https://github.com/torch2424/dotFiles/blob/master/.bash_templates/systemctl.service
+# Syntax guide: https://www.freedesktop.org/software/systemd/man/systemd.service.html
 
 # Copy the file to /etc/systemd/system
 [Unit]
@@ -12,6 +13,7 @@ User=torch2424
 WorkingDirectory=/home/torch2424
 ExecStart=/bin/bash --login -c 'source $HOME/.bashrc; cd /home/torch2424/devops/caddy/aaronTheDev-proxy && caddy -env caddy.env -email aaron@aaronthedev.com -agree'
 Restart=always
+RestartSec=15min
 
 [Install]
 WantedBy=multi-user.target
