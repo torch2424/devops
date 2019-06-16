@@ -1,11 +1,16 @@
 #!/usr/bin/env node
 
 const fs = require('fs');
-const argv = require('minimist')(process.argv.slice(2));
+const argv = require('minimist')(process.argv.slice(2), {
+  string: ['secret'],
+  alias: {
+    s: 'secret'
+  }
+});
 
 // Get our json config
 const fishbaitConfig = JSON.parse(fs.readFileSync(argv._[0]));
 
 // Get our fishbait server, and start listening
-const fishbaitServer = require('../index.js')(fishbaitConfig);
+const fishbaitServer = require('../index.js')(fishbaitConfig, argv.secret);
 fishbaitServer.listen();

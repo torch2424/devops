@@ -2,14 +2,14 @@ const githubhook = require('githubhook');
 const exec = require('child_process').exec;
 
 // Return a function that returns a function to start listening
-module.exports = (fishbaitConfig) => {
+module.exports = (fishbaitConfig, secret) => {
 
   // Configure our fishbait server
   const fishbaitServer = githubhook({
     host: fishbaitConfig.host,
     port: fishbaitConfig.port,
     path: fishbaitConfig.path,
-    secret: fishbaitConfig.secret
+    secret: secret
   });
 
   // Set up our server listeners

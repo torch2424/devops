@@ -16,13 +16,12 @@ params.append('payload', JSON.stringify(payload));
 const getFishbaitServer = (secret, event, reponame, ref) => {
   // Get our config
   const fishbaitConfig = require('../fishbait.example.json');
-  fishbaitConfig.secret = secret;
   fishbaitConfig.hooks[0].event = event; 
   fishbaitConfig.hooks[0].reponame = reponame;
   fishbaitConfig.hooks[0].ref = ref; 
 
   // Get our server
-  return require('../index.js')(fishbaitConfig);
+  return require('../index.js')(fishbaitConfig, secret);
 };
 
 const pingServerWithOptions = (secret, othersecret, event, reponame, ref) => {

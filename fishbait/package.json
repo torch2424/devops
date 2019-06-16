@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "npm run dev",
-    "dev": "node bin/fishbait fishbait.example.json",
+    "dev": "node bin/fishbait fishbait.example.json -s my-secret",
     "test": "npx mocha test/test.js"
   },
   "keywords": [
