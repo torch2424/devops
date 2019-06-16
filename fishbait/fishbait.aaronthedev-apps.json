@@ -9,6 +9,18 @@
       "reponame": "wasm-by-example", 
       "ref": "refs/heads/master",
       "command": "cd /home/torch2424/wasm-by-example/devops && ./build.sh"
+    },
+    {
+      "event": "push",
+      "reponame": "vaporBoy", 
+      "ref": "refs/heads/master",
+      "command": "cd /home/torch2424/vaporBoy/devops/scripts && ./build.sh"
+    },
+    {
+      "event": "push",
+      "reponame": "personal-site-amp", 
+      "ref": "refs/heads/master",
+      "command": "cd /home/torch2424/personal-site-amp/devops && ./build.sh"
     }
   ]
 }
