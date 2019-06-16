@@ -15,6 +15,7 @@ module.exports = (fishbaitConfig) => {
   // Set up our server listeners
   fishbaitConfig.hooks.forEach(hook => {
     fishbaitServer.on(`${hook.event}:${hook.reponame}:${hook.ref}`, data => {
+      console.log('Running Command: ', hook.command);
       exec(hook.command, (error, stdout, stderror) => {
         console.log(stdout);
       });
