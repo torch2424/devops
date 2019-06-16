@@ -7,7 +7,7 @@
     {
       "event": "push",
       "reponame": "wasm-by-example", 
-      "ref": "master",
+      "ref": "refs/heads/master",
       "command": "cd /home/torch2424/wasm-by-example/devops && ./build.sh"
     }
   ]

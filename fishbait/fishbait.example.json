@@ -7,7 +7,7 @@
     {
       "event": "push",
       "reponame": "example", 
-      "ref": "master",
+      "ref": "refs/heads/master",
       "command": "echo 'Hello World'"
     }
   ]
