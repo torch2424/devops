@@ -32,7 +32,7 @@ logs.aaronthedev.com, http://0.0.0.0:7891 {
 }
 
 # Home Page / Portfolio site
-aaronthedev.com, aaronthedev.app, http://0.0.0.0:8000 {
+aaronthedev.com, http://0.0.0.0:8000 {
     import logsnippet
     gzip
     proxy / {$APP_IP}:8000 {$APP_2_IP}:8000 0.0.0.0:5000/aaronTheDev {
