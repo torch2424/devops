@@ -1,0 +1,14 @@
+{
+  "host": "0.0.0.0",
+  "port": "3420",
+  "secret": "TODO",
+  "path": "/fishbait",
+  "hooks": [
+    {
+      "event": "push",
+      "reponame": "wasm-by-example", 
+      "ref": "master",
+      "command": "cd /home/torch2424/wasm-by-example/devops && ./build.sh"
+    }
+  ]
+}
