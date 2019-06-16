@@ -1,3 +1,6 @@
+# Ignore service files
+*.service
+
 # Logs
 logs
 *.log
