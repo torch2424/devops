@@ -41,6 +41,7 @@ http://0.0.0.0:6080 {
   root /home/torch2424/wasm-by-example/public
   
   ext .html
+  mime .wasm application/wasm
 
   header /assets {
     Cache-Control "public, max-age=31536000"
