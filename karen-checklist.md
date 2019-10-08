@@ -9,5 +9,7 @@
 
 ## Optional
 
-* Set up go links?
-* Set up smart home speaker?
+* Set up go links
+* Set up smart home speaker
+* Set up Peerflix: https://github.com/asapach/peerflix-server
+

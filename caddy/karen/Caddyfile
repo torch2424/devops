@@ -1,6 +1,6 @@
 # Homepage
 http://0.0.0.0:80, torch2424.com {
-  root /home/pi/.files_caddy/karen/
+  root /home/pi/devops/caddy/karen/
 }
 
 # Pi Hole
@@ -9,6 +9,8 @@ http://0.0.0.0:80, torch2424.com {
 # https://docs.pi-hole.net/guides/caddy-configuration/
 pi.hole:80, pihole.torch2424.com, http://0.0.0.0:24240 {
   root /var/www/html/pihole
+
+  basicauth / {$SKATE} {$BOARD}
 
   rewrite {
     ext js
@@ -20,9 +22,13 @@ pi.hole:80, pihole.torch2424.com, http://0.0.0.0:24240 {
   }
 }
 
-# Speaker Pi
-# speaker.torch2424.com {
-#  proxy / 192.168.86.111:4242 {
-#    transparent
-#  }
-#}
+# Peerflix
+peer.torch2424.com, http://0.0.0.0:9090 {
+
+  basicauth / {$SKATE} {$BOARD}
+
+  proxy / localhost:9000 {
+    transparent
+  }
+}
+
