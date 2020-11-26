@@ -1,9 +1,16 @@
+# Homepage
+http://0.0.0.0:80, torch2424.com {
+  root /home/pi/devops/caddy/karen/
+}
+
 # Pi Hole
 # Need to set lighttpd on port 1080 from guide:
 # https://github.com/pi-hole/pi-hole/wiki/Caddy-Webserver-Frontend
 # https://docs.pi-hole.net/guides/caddy-configuration/
-http:// 0.0.0.0:80, pi.hole:80, http://0.0.0.0:8080 {
+pi.hole:80, pihole.torch2424.com, http://0.0.0.0:8080 {
   root /var/www/html/pihole
+
+  basicauth / {$SKATE} {$BOARD}
 
   rewrite {
     ext js
@@ -16,7 +23,7 @@ http:// 0.0.0.0:80, pi.hole:80, http://0.0.0.0:8080 {
 }
 
 # Peerflix
-http://0.0.0.0:9090 {
+peer.torch2424.com, http://0.0.0.0:9090 {
 
   basicauth / {$SKATE} {$BOARD}
 
