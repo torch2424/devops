@@ -151,9 +151,9 @@ demo.aaronthedev.com, http://0.0.0.0:2425 {
 }
 
 # Tunnel, for ngrok-like ssh port sharing
-tunnel.aaronthedev.com, tunnel.aaronthedev.app {
+tunnel.aaronthedev.com, http://0.0.0.0:9090 {
   gzip
-	proxy / localhost:9090 0.0.0.0:5000 {
+	proxy / localhost:9091 0.0.0.0:5000 {
 		policy first
 		health_check /
 		transparent
