@@ -37,5 +37,5 @@ do
   echo " "
   echo "Sleeping..."
   echo " "
-  sleep 2h
+  sleep 12h
 done
