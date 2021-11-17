@@ -1,0 +1,96 @@
+# Our Maintenance Failover Website
+http://0.0.0.0:5000 {
+  gzip
+  root /home/torch2424/maintenanceFailover
+
+  rewrite / {
+  	regexp .*
+    # Rewrite to the path, then path with slash, then if both 404, just /
+  	to {path} {path}/ /
+  }
+}
+
+# Vaporboy Scraping
+http://0.0.0.0:9080 {
+  gzip
+  root /home/torch2424/maintenanceFailover
+
+  rewrite {
+	  if {path} not_starts_with /scrape
+		regexp .*
+    to {path} {path}/ {path}/index.html /
+	}
+
+	proxy scrape/igdb api-endpoint.igdb.com {
+	  without /scrape/igdb
+	  header_upstream user-key {$IGDB_API_KEY}
+	  header_upstream Accept application/json
+	}
+
+	proxy /scrape/giantbomb https://www.giantbomb.com/api/games/?api_key={$GIANTBOMB_API_KEY} {
+	  without /scrape/giantbomb
+	  header_downstream Access-Control-Allow-Origin "*"
+	}
+}
+
+
+# Tunnel, for ngrok-like ssh port sharing
+tunnel.aaronthedev.com, http://0.0.0.0:9090 {
+  gzip
+	proxy / localhost:9091 0.0.0.0:5000 {
+		policy first
+		health_check /
+		transparent
+	}
+}
+
+# Droppy File Server
+files.aaronthedev.com, http://0.0.0.0:8990 {
+    gzip
+    proxy / 0.0.0.0:8989 0.0.0.0:5000 {
+        policy first
+        transparent
+        health_check /
+        websocket
+    }
+
+    header /$/ {
+        Cache-Control  "public, max-age=2678400"
+    }
+}
+
+# Testbuild / demo, Droppy directory for hosting quick builds
+demo.aaronthedev.com, http://0.0.0.0:2425 {
+  root /home/torch2424/droppyFileServer/files/testbuild.aaronthedev.com
+
+  browse
+}
+
+# Basic Auth for Inbucket
+tempmail.aaronthedev.com, http://0.0.0.0:9025 {
+    basicauth / torch2424 htpasswd=.htpasswd
+    proxy / localhost:9000 {
+        transparent
+        websocket
+    }
+}
+
+# Leah's Portfolio Site
+leahrosegarza.com, http://0.0.0.0:2525 {
+  gzip
+  proxy / 0.0.0.0:2524 0.0.0.0:5000/leahRoseGarza {
+      policy first
+      transparent
+      health_check /
+  }
+}
+
+# Get Dis Money
+getdismoney.com, http://0.0.0.0:3030 {
+    gzip
+    proxy / 0.0.0.0:3029 0.0.0.0:5000 {
+        policy first
+        transparent
+        health_check /
+    }
+}
