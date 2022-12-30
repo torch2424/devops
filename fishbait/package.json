@@ -28,7 +28,7 @@
     "minimist": "^1.2.0"
   },
   "devDependencies": {
-    "mocha": "^6.1.4",
+    "mocha": "^10.2.0",
     "node-fetch": "^2.6.0",
     "sinon": "^7.3.2"
   }
